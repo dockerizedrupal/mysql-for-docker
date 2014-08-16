@@ -6,6 +6,9 @@ node default {
         'max_connections' => '1024',
         'bind-address' => '0.0.0.0',
       },
-    },
+      'mysqld_safe' => {
+        'bind-address' => '0.0.0.0'
+      }
+    }
   }
 }
