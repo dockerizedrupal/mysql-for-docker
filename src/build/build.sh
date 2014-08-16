@@ -9,8 +9,7 @@ mysql_install_db
 
 RET=1
 
-while [[ RET -ne 0 ]]
-do
+while [[ RET -ne 0 ]]; do
     sleep 5
 
     mysql -uroot -e "status"
