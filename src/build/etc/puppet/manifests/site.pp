@@ -12,7 +12,7 @@ node default {
     }
   }
 
-  mysql_grant { 'root@%/*':
+  mysql_grant { 'root@%/*.*':
     ensure => 'present',
     options => ['GRANT'],
     privileges => ['ALL'],
