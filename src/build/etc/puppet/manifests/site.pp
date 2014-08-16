@@ -4,7 +4,7 @@ node default {
     override_options => {
       'mysqld' => {
         'bind-address' => '0.0.0.0',
-      },
+      }
     }
   }
 
@@ -13,6 +13,6 @@ node default {
     options => ['GRANT'],
     privileges => ['ALL'],
     table => '*.*',
-    user => 'root@%',
+    user => 'root@%'
   }
 }
