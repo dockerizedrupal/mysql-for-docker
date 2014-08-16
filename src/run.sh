@@ -1,3 +1,3 @@
 #!/bin/sh
 
-service mysql start
+exec /usr/bin/mysqld_safe
