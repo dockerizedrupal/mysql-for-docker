@@ -4,10 +4,10 @@ MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ADD ./src/build.sh /opt/build.sh
-RUN chmod +x /opt/build.sh
-RUN /opt/build.sh
-RUN rm /opt/build.sh
+ADD ./src/build /opt/build
+RUN chmod +x /opt/build/build.sh
+RUN /opt/build/build.sh
+RUN rm -rf /opt/build
 
 ADD ./src/run.sh /opt/run.sh
 RUN chmod +x /opt/run.sh

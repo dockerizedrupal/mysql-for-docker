@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/usr/bin/mysqld_safe
+exec /usr/bin/mysqld_safe
