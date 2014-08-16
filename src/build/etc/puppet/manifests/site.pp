@@ -11,4 +11,11 @@ node default {
       }
     }
   }
+
+  mysql_grant { 'root@%/*.*':
+    ensure => 'present',
+    options => ['GRANT'],
+    privileges => ['ALL'],
+    user => 'root@%/*.*',
+  }
 }
