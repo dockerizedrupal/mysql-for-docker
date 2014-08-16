@@ -1,7 +1,6 @@
 #!/bin/sh
 
-dpkg-divert --local --rename --add /sbin/initctl
-ln -s /bin/true /sbin/initctl
+apt-get install ca-certificates
 
 puppet module install puppetlabs-mysql
 
