@@ -8,3 +8,5 @@ mysql_install_db
 service mysql start
 
 mysqladmin -u root password "root"
+
+ls /etc/puppet
