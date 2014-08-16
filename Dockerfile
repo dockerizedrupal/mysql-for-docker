@@ -2,6 +2,8 @@ FROM ubuntu:14.04
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 ADD ./src/build.sh /opt/build.sh
 RUN chmod +x /opt/build.sh
 RUN /opt/build.sh
