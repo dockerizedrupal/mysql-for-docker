@@ -16,7 +16,7 @@ node default {
     ensure => 'present',
     options => ['GRANT'],
     privileges => ['ALL'],
-    table => '*',
+    table => '*.*',
     user => 'root@%',
   }
 }
