@@ -9,4 +9,4 @@ service mysql start
 
 mysqladmin -u root password "root"
 
-ls /etc/puppet
+ls /etc/puppet/manifests -la
