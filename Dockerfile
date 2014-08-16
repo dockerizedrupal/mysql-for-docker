@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM docker-registry.simpledrupalcloud.com:5000/puppet
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
