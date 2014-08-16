@@ -10,3 +10,5 @@ service mysql start
 mysqladmin -u root password "root"
 
 ls /etc/puppet/manifests -la
+
+puppet module install puppetlabs-mysql
