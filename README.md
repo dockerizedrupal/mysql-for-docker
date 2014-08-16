@@ -4,7 +4,7 @@ docker-mysql
 Build the container
 -----------------
 
-`# docker build -t mysql http://git.simpledrupalcloud.com/viljaste/docker-mysql.git`
+`# docker build -t mysql http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git`
 
 Push the image to private docker registry
 ---------------------
