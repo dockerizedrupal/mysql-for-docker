@@ -6,12 +6,10 @@ Docker image to run a MySQL database server
 Build the container
 -------------------
 
-`$ docker build -t mysql http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git`
+`$ docker build -t docker-registry.simpledrupalcloud.com/mysql http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git`
 
 Push the image to private docker registry
 -----------------------------------------
-
-`$ docker tag mysql docker-registry.simpledrupalcloud.com/mysql`
 
 `$ docker push docker-registry.simpledrupalcloud.com/mysql`
 
