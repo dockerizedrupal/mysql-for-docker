@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+apt-get update
+
 puppet module install puppetlabs-mysql
 
 cp /opt/build/etc/puppet/manifests/site.pp /etc/puppet/manifests/site.pp
