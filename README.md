@@ -23,4 +23,4 @@ Pull the image from the private docker registry
 Run the container
 -----------------
 
-`$ docker run --name mysql -p 3306:3306 -d mysql`
+`$ docker run --name mysql -p 3306:3306 -d docker-registry.simpledrupalcloud.com/mysql`
