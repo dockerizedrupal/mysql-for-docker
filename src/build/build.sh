@@ -2,6 +2,6 @@
 
 puppet module install puppetlabs-mysql
 
-cp /opt/build/etc/puppet/manifests/site.pp /etc/puppet/manifests/site.pp
+puppet apply /opt/build/etc/puppet/manifests/build.pp
 
-puppet apply /etc/puppet/manifests/site.pp
+cp /opt/build/etc/puppet/manifests/run.pp /etc/puppet/manifests/run.pp
