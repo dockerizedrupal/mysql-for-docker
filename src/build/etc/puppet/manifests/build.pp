@@ -4,6 +4,11 @@ node default {
     source => '/tmp/build/etc/puppet/manifests/run.pp',
   }
 
+  file { '/etc/supervisor/conf.d/mysql.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/mysql.conf',
+  }
+
   class { 'mysql::server':
     root_password => 'root',
     override_options => {

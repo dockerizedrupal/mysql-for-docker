@@ -2,4 +2,4 @@
 
 puppet apply /opt/build/etc/puppet/manifests/run.pp
 
-mysqld_safe
+supervisord
