@@ -1,5 +1,10 @@
 node default {
-  class { '::mysql::server':
+  file { '/etc/puppet/manifests/run.pp':
+    ensure => present,
+    source => '/tmp/build/etc/puppet/manifests/run.pp',
+  }
+
+  class { 'mysql::server':
     root_password => 'root',
     override_options => {
       'mysqld' => {
