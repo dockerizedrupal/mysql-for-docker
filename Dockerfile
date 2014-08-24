@@ -14,4 +14,4 @@ VOLUME ["/var/lib/mysql"]
 
 EXPOSE 3306
 
-CMD ["/opt/run.sh"]
+CMD ["/run.sh"]
