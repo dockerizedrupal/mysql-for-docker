@@ -16,6 +16,11 @@ class mysql_supervisor {
 class mysql {
   include mysql_supervisor
 
+  file { '/etc/mysql/my.cnf':
+    ensure => present,
+    source => '/tmp/build/etc/mysql/my.cnf'
+  }
+  
   exec { '/bin/bash -c "/etc/init.d/mysql start && echo \"UPDATE mysql.user SET password = PASSWORD(\'root\') WHERE user = \'root\';\" | mysql"': }
 }
 
