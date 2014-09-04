@@ -10,6 +10,7 @@ RUN chmod +x /tmp/build/build.sh
 RUN /tmp/build/build.sh
 RUN rm -rf /tmp/*
 
+VOLUME ["/conf.d"]
 VOLUME ["/var/lib/mysql"]
 
 EXPOSE 3306

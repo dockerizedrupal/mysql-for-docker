@@ -5,7 +5,9 @@ if [ ! "$(ls -A /var/lib/mysql)" ]; then
 
   /etc/init.d/mysql start
 
-  echo "UPDATE mysql.user SET password = PASSWORD('root') WHERE user = 'root';" | /usr/bin/mysql
+  /usr/bin/mysqladmin -u root password 'root'
+
+  /etc/init.d/mysql stop
 fi
 
 #if [ -n "${MYSQL_PASSWORD}" ]; then
