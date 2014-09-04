@@ -21,8 +21,6 @@ class mysql {
     source => '/tmp/build/etc/mysql/my.cnf'
   }
 
-  $mysql = env("PATH")
-
   if str2bool("$env_mysql_password") {
     exec { '/bin/bash -c "/etc/init.d/mysql start && echo \"UPDATE mysql.user SET password = PASSWORD(\'%{env_mysql_password}\') WHERE user = \'root\';\" | mysql"': }
   }
