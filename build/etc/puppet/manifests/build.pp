@@ -1,3 +1,24 @@
+class packages {
+  package {[
+      'mysql-server'
+    ]:
+    ensure => present
+  }
+}
+
+class mysql_supervisor {
+  file { '/etc/supervisor/conf.d/mysql.conf':
+    ensure => present,
+    source => '/tmp/build/etc/supervisor/conf.d/mysql.conf'
+  }
+}
+
+class mysql {
+  include mysql_supervisor
+
+
+}
+
 node default {
   file { '/run.sh':
     ensure => present,
@@ -5,25 +26,13 @@ node default {
     mode => 755
   }
 
-  file { '/etc/supervisor/conf.d/mysql.conf':
-    ensure => present,
-    source => '/tmp/build/etc/supervisor/conf.d/mysql.conf'
-  }
+  include packages
+  include mysql
 
-  class { 'mysql::server':
-    root_password => 'root',
-    override_options => {
-      'mysqld' => {
-        'bind-address' => '0.0.0.0'
-      }
-    }
-  }
+  Class['packages'] -> Class['mysql']
 
-  mysql_grant { 'root@%/*.*':
-    ensure => 'present',
-    options => ['GRANT'],
-    privileges => ['ALL'],
-    table => '*.*',
-    user => 'root@%'
+  exec { 'apt-get update':
+    path => ['/usr/bin'],
+    before => Class['packages']
   }
 }
