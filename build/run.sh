@@ -5,7 +5,9 @@ if [ ! "$(ls -A /var/lib/mysql)" ]; then
 
   /etc/init.d/mysql start
 
-  /usr/bin/mysqladmin -u root password 'root'
+  PASSWORD=$([ "${MYSQL_PASSWORD}" ] && echo "${MYSQL_PASSWORD}" || echo 'root')
+
+  /usr/bin/mysqladmin -u root password "${PASSWORD}"
 
   /etc/init.d/mysql stop
 fi
