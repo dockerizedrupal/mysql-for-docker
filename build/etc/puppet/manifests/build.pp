@@ -16,7 +16,7 @@ class mysql_supervisor {
 class mysql {
   include mysql_supervisor
 
-  exec { '/bin/bash -c "/etc/init.d/mysql start && echo \"UPDATE mysql.user SET password = PASSWORD('root') WHERE user = 'root';\" | mysql"': }
+  exec { '/bin/bash -c "/etc/init.d/mysql start && echo \"UPDATE mysql.user SET password = PASSWORD(\'root\') WHERE user = \'root\';\" | mysql"': }
 }
 
 node default {
