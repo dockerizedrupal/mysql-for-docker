@@ -4,7 +4,13 @@ docker-mysql-5.5.38
 Run the container
 -----------------
 
-    sudo docker run --name mysql --net host -v /opt/mysql-5.5.28/conf.d:/conf.d -v /opt/mysql-5.5.28/data:/var/lib/mysql -d simpledrupalcloud/mysql:5.5.38
+    sudo docker run \
+      --name mysql \
+      --net host \
+      -v /opt/mysql-5.5.28/conf.d:/conf.d \
+      -v /opt/mysql-5.5.28/data:/var/lib/mysql -v /var/run/mysqld/mysqld.sock:/var/run/mysqld/mysqld.sock \
+      -d \
+      simpledrupalcloud/mysql:5.5.38
 
 Build the image yourself
 ------------------------
