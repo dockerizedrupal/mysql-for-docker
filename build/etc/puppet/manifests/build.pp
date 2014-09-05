@@ -16,6 +16,14 @@ class mysql_supervisor {
 class mysql {
   include mysql_supervisor
 
+  exec { 'mkdir -p /mysql-5.5.38/conf.d':
+    path => ['/bin']
+  }
+
+  exec { 'mkdir -p /mysql-5.5.38/data':
+    path => ['/bin']
+  }
+
   file { '/etc/mysql/my.cnf':
     ensure => present,
     source => '/tmp/build/etc/mysql/my.cnf'
