@@ -7,8 +7,8 @@ Run the container
     sudo docker run \
       --name mysql \
       --net host \
-      -v /opt/mysql-5.5.28/conf.d:/conf.d \
-      -v /opt/mysql-5.5.28/data:/var/lib/mysql \
+      -v /var/mysql-5.5.28/conf.d:/mysql-5.5.28/conf.d \
+      -v /var/mysql-5.5.28/data:/mysql-5.5.38/data \
       -d \
       simpledrupalcloud/mysql:5.5.38
 
