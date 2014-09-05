@@ -19,8 +19,3 @@ Build the image yourself
     cd docker-mysql
     git checkout 5.5.38
     sudo docker build -t mysql:5.5.38 .
-
-Default root password
----------------------
-
-    root
