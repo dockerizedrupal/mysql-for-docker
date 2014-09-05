@@ -12,4 +12,8 @@ if [ ! "$(ls -A /var/lib/mysql)" ]; then
   /etc/init.d/mysql stop
 fi
 
-/usr/bin/supervisord
+if [ "${#}" -gt 0 ]; then
+  /usr/bin/mysql "${@}"
+else
+  /usr/bin/supervisord
+fi
