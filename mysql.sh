@@ -6,7 +6,7 @@ if [ "${#}" -gt 0 ]; then
     -i \
     -t \
     --net host \
-    simpledrupalcloud/mysql:5.5.38 -h 127.0.0.1 "${@}"
+    simpledrupalcloud/mysql:5.5.38 "${@}"
 else
   sudo docker run \
     --name mysql \
