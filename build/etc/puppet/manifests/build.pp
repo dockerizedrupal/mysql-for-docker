@@ -24,9 +24,24 @@ class mysql {
     path => ['/bin']
   }
 
+  exec { 'mkdir -p /mysql-5.5.38/log':
+    path => ['/bin']
+  }
+
+  file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
+    ensure => absent
+  }
+
   file { '/etc/mysql/my.cnf':
     ensure => present,
-    source => '/tmp/build/etc/mysql/my.cnf'
+    source => '/tmp/build/etc/mysql/my.cnf',
+    mode => 644
+  }
+
+  file { '/etc/logrotate.d/mysql-server':
+    ensure => present,
+    source => '/tmp/build/etc/logrotate.d/mysql-server',
+    mode => 644
   }
 }
 
