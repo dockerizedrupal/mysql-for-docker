@@ -10,8 +10,6 @@ RUN chmod +x /tmp/build/build.sh
 RUN /tmp/build/build.sh
 RUN rm -rf /tmp/*
 
-VOLUME ["/var/run/mysqld/mysqld.sock"]
-
 VOLUME ["/mysql-5.5.38/conf.d"]
 VOLUME ["/mysql-5.5.38/data"]
 VOLUME ["/mysql-5.5.38/log"]
