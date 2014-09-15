@@ -17,7 +17,7 @@ Run the container
 Build the image
 ---------------
 
-    TMP=$(mktemp -d) \
+    TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.5.38 \
