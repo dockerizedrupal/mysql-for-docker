@@ -7,6 +7,9 @@ if [ ! "$(ls -A /mysql-5.5.38/data)" ]; then
 
   PASSWORD=$([ "${MYSQL_PASSWORD}" ] && echo "${MYSQL_PASSWORD}" || echo 'root')
 
+  echo "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';" | mysql
+  echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;" | mysql
+
   /usr/bin/mysqladmin -u root password "${PASSWORD}"
 
   /etc/init.d/mysql stop
