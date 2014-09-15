@@ -28,6 +28,16 @@ class mysql {
     path => ['/bin']
   }
 
+  exec { 'touch /mysql-5.5.38/log/mysql-slow.log':
+    path => ['/usr/bin'],
+    require => Exec['mkdir -p /mysql-5.5.38/log']
+  }
+
+  exec { 'chown mysql.root /mysql-5.5.38/log/mysql-slow.log':
+    path => ['/bin'],
+    require => Exec['touch /mysql-5.5.38/log/mysql-slow.log']
+  }
+
   file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
     ensure => absent
   }
