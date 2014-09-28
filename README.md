@@ -1,8 +1,6 @@
-docker-mysql-5.5.38
-===================
+# docker-mysql-5.5.38
 
-Run the container
------------------
+## Run the container
 
     CONTAINER=mysql && sudo docker run \
       --name "${CONTAINER}" \
@@ -14,8 +12,7 @@ Run the container
       -d \
       simpledrupalcloud/mysql:5.5.38
 
-Build the image
----------------
+## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
