@@ -1,8 +1,6 @@
-docker-mysql
-============
+# docker-mysql
 
-MySQL 5.5.38
-------------
+## MySQL 5.5.38
 
 ### Run the container
 
