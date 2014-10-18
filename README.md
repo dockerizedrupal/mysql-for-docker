@@ -6,9 +6,7 @@
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
-      -v /var/mysql-5.5.38/conf.d:/mysql-5.5.38/conf.d \
-      -v /var/mysql-5.5.38/data:/mysql-5.5.38/data \
-      -v /var/mysql-5.5.38/log:/mysql-5.5.38/log \
+      -v /var/lib/mysql:/mysql-5.5.38/data \
       -d \
       simpledrupalcloud/mysql:5.5.38-dev
 

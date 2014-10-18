@@ -5,11 +5,11 @@ class mysql {
     path => ['/bin']
   }
 
-#  file { '/etc/mysql/my.cnf':
-#    ensure => present,
-#    source => 'puppet:///modules/mysql/etc/mysql/my.cnf',
-#    mode => 644
-#  }
+  file { '/etc/mysql/my.cnf':
+    ensure => present,
+    source => 'puppet:///modules/mysql/etc/mysql/my.cnf',
+    mode => 644
+  }
 
   file { '/etc/supervisor/conf.d/mysql.conf':
     ensure => present,
