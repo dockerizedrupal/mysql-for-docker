@@ -29,18 +29,18 @@ class mysql {
 
   file { '/etc/mysql/my.cnf':
     ensure => present,
-    source => 'puppet:///modules/etc/mysql/my.cnf',
+    source => 'puppet:///modules/mysql/etc/mysql/my.cnf',
     mode => 644
   }
 
   file { '/etc/logrotate.d/mysql-server':
     ensure => present,
-    source => 'puppet:///modules/etc/logrotate.d/mysql-server',
+    source => 'puppet:///modules/mysql/etc/logrotate.d/mysql-server',
     mode => 644
   }
 
   file { '/etc/supervisor/conf.d/mysql.conf':
     ensure => present,
-    source => 'puppet:///modules/etc/supervisor/conf.d/mysql.conf'
+    source => 'puppet:///modules/mysql/etc/supervisor/conf.d/mysql.conf'
   }
 }
