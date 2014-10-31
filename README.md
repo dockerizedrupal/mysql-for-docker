@@ -2,7 +2,7 @@
 
 ## Run the container
 
-    CONTAINER="mysql-dev" && sudo docker run \
+    CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
