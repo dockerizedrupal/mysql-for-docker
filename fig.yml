@@ -1,0 +1,7 @@
+mysql:
+  image: simpledrupalcloud/mysql:5.5.38-dev
+  hostname: mysql
+  ports:
+    - "3306:3306"
+  volumes:
+    - /var/mysql-5.5.38/data:/mysql-5.5.38/data
