@@ -1,4 +1,5 @@
 mysql:
+  build: .
   image: simpledrupalcloud/mysql:5.5.38-dev
   hostname: mysql
   ports:
