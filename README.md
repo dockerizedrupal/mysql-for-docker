@@ -18,3 +18,7 @@
       && git checkout 5.5.38-dev \
       && sudo docker build -t simpledrupalcloud/mysql:5.5.38-dev . \
       && cd -
+
+## License
+
+**MIT**
