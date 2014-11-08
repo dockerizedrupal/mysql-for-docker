@@ -1,6 +1,10 @@
 # docker-mysql-5.5.38-dev
 
+A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
+
 ## Run the container
+
+Using the `docker` command:
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -9,6 +13,14 @@
       -v /var/docker/mysql-5.5.38/data:/mysql-5.5.38/data \
       -d \
       simpledrupalcloud/mysql:5.5.38-dev
+      
+Using the `fig` command
+
+    TMP="$(mktemp -d)" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
+      && cd "${TMP}" \
+      && git checkout 5.5.38-dev \
+      && fig up
 
 ## Build the image
 
