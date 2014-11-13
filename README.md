@@ -6,7 +6,7 @@ A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
 
 Using the `docker` command:
 
-    CONTAINER="mysql-dev" && sudo docker run \
+    CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
