@@ -1,8 +1,8 @@
-# docker-mysql-5.5.38-dev
+# docker-mysql-5.5.38
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
 
-## MySQL 5.5.38 (DEVELOPMENT BRANCH)
+## MySQL 5.5.38 (STABLE BRANCH)
 
 ### Run the container
 
@@ -12,7 +12,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /var/docker/mysql-5.5.38/data:/mysql-5.5.38/data \
-      simpledrupalcloud/data:dev
+      simpledrupalcloud/data:latest
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -20,14 +20,14 @@ Using the `docker` command:
       -p 3306:3306 \
       --volumes-from data \
       -d \
-      simpledrupalcloud/mysql:5.5.38-dev
+      simpledrupalcloud/mysql:5.5.38
 
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.5.38-dev \
+      && git checkout 5.5.38 \
       && fig up
 
 ### Build the image
@@ -35,8 +35,8 @@ Using the `fig` command
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 5.5.38-dev \
-      && sudo docker build -t simpledrupalcloud/mysql:5.5.38-dev . \
+      && git checkout 5.5.38 \
+      && sudo docker build -t simpledrupalcloud/mysql:5.5.38 . \
       && cd -
 
 ## License
