@@ -4,9 +4,9 @@ mysql:
   ports:
     - "3306:3306"
   volumes_from:
-    - data
-data:
+    - mysqldata
+mysqldata:
   image: simpledrupalcloud/data:dev
-  hostname: data
+  hostname: mysqldata
   volumes:
     - ./.docker/mysql-5.5.38/data:/mysql-5.5.38/data
