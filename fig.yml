@@ -9,4 +9,4 @@ data:
   image: simpledrupalcloud/data:dev
   hostname: data
   volumes:
-    - /var/docker/mysql-5.5.38/data:/mysql-5.5.38/data
+    - ./.docker/mysql-5.5.38/data:/mysql-5.5.38/data
