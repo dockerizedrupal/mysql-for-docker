@@ -11,7 +11,7 @@ Using the `docker` command:
     CONTAINER="data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /var/docker/mysql-5.5.38/data:/mysql-5.5.38/data \
+      -v (pwd)/.docker/mysql-5.5.38/data:/mysql-5.5.38/data \
       simpledrupalcloud/data:latest
 
     CONTAINER="mysql" && sudo docker run \
@@ -48,7 +48,7 @@ Using the `docker` command:
     CONTAINER="data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /var/docker/mysql-5.5.38/data:/mysql-5.5.38/data \
+      -v (pwd)/.docker/mysql-5.5.38/data:/mysql-5.5.38/data \
       simpledrupalcloud/data:dev
 
     CONTAINER="mysql" && sudo docker run \
