@@ -8,7 +8,7 @@ A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
 
 Using the `docker` command:
 
-    CONTAINER="data" && sudo docker run \
+    CONTAINER="mysqldata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v $(pwd)/.docker/mysql-5.5.38/data:/mysql-5.5.38/data \
@@ -18,7 +18,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
-      --volumes-from data \
+      --volumes-from mysqldata \
       -d \
       simpledrupalcloud/mysql:5.5.38
 
