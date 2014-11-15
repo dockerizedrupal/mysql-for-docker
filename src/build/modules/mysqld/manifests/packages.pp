@@ -1,4 +1,4 @@
-class mysql::packages {
+class mysqld::packages {
   exec { 'apt-get update':
     path => ['/usr/bin']
   }

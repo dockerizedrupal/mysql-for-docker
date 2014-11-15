@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ ! "$(ls -A /mysql-5.5.38/data)" ]; then
+if [ ! "$(ls -A /mysqld-5.5.38/data)" ]; then
   /usr/bin/mysql_install_db
 
   /etc/init.d/mysql start
