@@ -1,4 +1,4 @@
-# docker-mysql-5.5.38
+# docker-mysqld-5.5.38
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
 
@@ -8,24 +8,24 @@ A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/).
 
 Using the `docker` command:
 
-    CONTAINER="mysqldata" && sudo docker run \
+    CONTAINER="mysqlddata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v $(pwd)/.docker/mysql-5.5.38/data:/mysql-5.5.38/data \
+      -v $(pwd)/.docker/mysqld-5.5.38/data:/mysqld-5.5.38/data \
       simpledrupalcloud/data:latest
 
-    CONTAINER="mysql" && sudo docker run \
+    CONTAINER="mysqld" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
-      --volumes-from mysqldata \
+      --volumes-from mysqlddata \
       -d \
-      simpledrupalcloud/mysql:5.5.38
+      simpledrupalcloud/mysqld:5.5.38
 
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.5.38 \
       && fig up
@@ -33,10 +33,10 @@ Using the `fig` command
 ### Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysql.git "${TMP}" \
+      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 5.5.38 \
-      && sudo docker build -t simpledrupalcloud/mysql:5.5.38 . \
+      && sudo docker build -t simpledrupalcloud/mysqld:5.5.38 . \
       && cd -
 
 ## License

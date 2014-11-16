@@ -11,7 +11,7 @@ RUN /src/build.sh
 
 RUN rm -rf /tmp/*
 
-VOLUME ["/mysql-5.5.38/data"]
+VOLUME ["/mysqld-5.5.38/data"]
 
 EXPOSE 3306
 
