@@ -1,7 +1,7 @@
 class mysqld {
   require mysqld::packages
 
-  exec { 'mkdir -p /mysqld-5.5.38/data':
+  exec { 'mkdir -p /mysqld/data':
     path => ['/bin']
   }
 
