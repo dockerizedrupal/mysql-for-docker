@@ -1,12 +1,12 @@
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: simpledrupalcloud/mysqld:dev
   hostname: mysqld
   ports:
     - "3306:3306"
   volumes_from:
     - mysqlddata
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: simpledrupalcloud/data:dev
   hostname: mysqlddata
   volumes:
     - ./.docker/mysqld/data:/mysqld/data

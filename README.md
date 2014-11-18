@@ -1,8 +1,8 @@
-# docker-mysqld
+# docker-mysqld-dev
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) server.
 
-## MySQL server (STABLE BRANCH)
+## MySQL server (DEVELOPMENT BRANCH)
 
 ### Run the container
 
@@ -12,7 +12,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v $(pwd)/.dev/mysqld/data:/mysqld/data \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="mysqld" && sudo docker run \
       --name "${CONTAINER}" \
@@ -20,13 +20,14 @@ Using the `docker` command:
       -p 3306:3306 \
       --volumes-from mysqlddata \
       -d \
-      simpledrupalcloud/mysqld:latest
+      simpledrupalcloud/mysqld:dev
 
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout dev \
       && fig up
 
 ### Build the image
@@ -34,7 +35,8 @@ Using the `fig` command
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/mysqld:latest . \
+      && git checkout dev \
+      && sudo docker build -t simpledrupalcloud/mysqld:dev . \
       && cd -
 
 ## License
