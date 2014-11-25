@@ -1,4 +1,4 @@
-# docker-mysqld-dev
+# docker-mysqld
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) server.
 
