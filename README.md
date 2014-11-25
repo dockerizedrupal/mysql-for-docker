@@ -11,7 +11,7 @@ Using the `docker` command:
     CONTAINER="mysqlddata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v $(pwd)/.dev/mysqld/data:/mysqld/data \
+      -v /mysqld/data \
       simpledrupalcloud/data:dev
 
     CONTAINER="mysqld" && sudo docker run \
