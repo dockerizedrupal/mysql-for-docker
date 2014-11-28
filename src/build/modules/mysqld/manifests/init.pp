@@ -1,5 +1,6 @@
 class mysqld {
   require mysqld::packages
+  require mysqld::supervisor
 
   exec { 'mkdir -p /mysqld/data':
     path => ['/bin']
@@ -11,8 +12,7 @@ class mysqld {
     mode => 644
   }
 
-  file { '/etc/supervisor/conf.d/mysqld.conf':
-    ensure => present,
-    source => 'puppet:///modules/mysqld/etc/supervisor/conf.d/mysqld.conf'
+  file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
+    ensure => absent
   }
 }
