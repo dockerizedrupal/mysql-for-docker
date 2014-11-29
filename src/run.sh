@@ -22,12 +22,12 @@ if [ ! "$(ls -A ${DATADIR})" ]; then
     sleep 1
   done
 
-  mysql -u root -e  "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
-  mysql -u root -e  "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
+  mysql -u root -e "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
+  mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
 
   /usr/bin/mysqladmin -u root password "${PASSWORD}"
 
-  /usr/bin/mysqladmin -u root shutdown
+  /usr/bin/mysqladmin -u root -p"${PASSWORD}" shutdown
 fi
 
 chown -R mysql.mysql "${DATADIR}"
