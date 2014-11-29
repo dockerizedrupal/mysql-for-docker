@@ -12,6 +12,12 @@ class mysqld {
     mode => 644
   }
 
+  file { '/etc/mysql/debian.cnf':
+    ensure => present,
+    source => 'puppet:///modules/mysqld/etc/mysql/debian.cnf',
+    mode => 644
+  }
+
   file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
     ensure => absent
   }
