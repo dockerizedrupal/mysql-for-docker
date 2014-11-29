@@ -9,14 +9,13 @@ if [ ! "$(ls -A ${DATADIR})" ]; then
 
   /usr/bin/mysqld_safe > /dev/null 2>&1 &
 
-  # wait for mysql server to start (max 30 seconds)
   TIMEOUT=30
 
   while ! /usr/bin/mysqladmin -u root status > /dev/null 2>&1
   do
-    TIMEOUT=$(($TIMEOUT - 1))
+    TIMEOUT=$((${TIMEOUT} - 1))
 
-    if [ $TIMEOUT -eq 0 ]; then
+    if [ ${TIMEOUT} -eq 0 ]; then
       exit 1
     fi
 
