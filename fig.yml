@@ -5,6 +5,8 @@ mysqld:
     - "3306:3306"
   volumes_from:
     - mysqlddata
+  environment:
+    - PASSWORD="root"
 mysqlddata:
   image: simpledrupalcloud/data:latest
   hostname: mysqlddata

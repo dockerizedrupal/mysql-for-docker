@@ -19,6 +19,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -p 3306:3306 \
       --volumes-from mysqlddata \
+      -e PASSWORD="root" \
       -d \
       simpledrupalcloud/mysqld:latest
 
@@ -36,6 +37,12 @@ Using the `fig` command
       && cd "${TMP}" \
       && sudo docker build -t simpledrupalcloud/mysqld:latest . \
       && cd -
+
+## Options
+
+### Setting the MySQL root user password
+
+By starting a container for the first time, you can pass the MySQL root user password as an environment variable `PASSWORD` to the container. Changing the password is not currently supported.
 
 ## License
 
