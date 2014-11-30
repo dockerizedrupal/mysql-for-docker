@@ -42,7 +42,7 @@ Using the `fig` command
 
 ### Setting the MySQL root user password
 
-By starting a container for the first time, you can pass the MySQL root user password as an environment variable `PASSWORD` to the container. Changing the password is not currently supported.
+By starting a container for the very first time, you can pass the MySQL root user password as an environment variable `PASSWORD` to the container. Changing the password is not currently supported.
 
 ## License
 
