@@ -48,6 +48,22 @@ By starting a container for the very first time, you can pass the MySQL root use
 
 Changing the password is not currently supported.
 
+## Backing up your data-only container volume
+
+    sudo docker run \
+      --rm \
+      --volumes-from mysqlddata \
+      -v $(pwd):/backup \
+      busybox:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
+
+## Restoring your data-only container volume
+
+    sudo docker run \
+      --rm \
+      --volumes-from mysqlddata \
+      -v $(pwd):/backup \
+      busybox:latest tar xzvf /backup/mysqlddata.tar.gz
+
 ## License
 
 **MIT**
