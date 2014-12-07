@@ -2,7 +2,7 @@
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) server.
 
-## MySQL server (DEVELOPMENT BRANCH)
+## MySQL (DEVELOPMENT BRANCH)
 
 ### Run the container
 
@@ -48,7 +48,7 @@ By starting a container for the very first time, you can pass the MySQL root use
 
 Changing the password is not currently supported.
 
-## Backing up your data-only container volume
+## Back up MySQL data
 
     sudo docker run \
       --rm \
@@ -56,7 +56,7 @@ Changing the password is not currently supported.
       -v $(pwd):/backup \
       busybox:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
 
-## Restoring your data-only container volume
+## Restore MySQL data from a backup
 
     sudo docker run \
       --rm \
