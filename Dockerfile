@@ -20,4 +20,4 @@ VOLUME ["/mysqld/data"]
 
 EXPOSE 3306
 
-ENTRYPOINT ["/src/run.sh"]
+CMD ["/src/run.sh"]
