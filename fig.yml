@@ -6,7 +6,7 @@ mysqld:
   volumes_from:
     - mysqlddata
   environment:
-    - PASSWORD="root"
+    - PASSWORD=root
 mysqlddata:
   image: simpledrupalcloud/data:dev
   hostname: mysqlddata
