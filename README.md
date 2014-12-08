@@ -2,9 +2,7 @@
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) server.
 
-## MySQL (DEVELOPMENT BRANCH)
-
-### Run the container
+## Run the container
 
 Using the `docker` command:
 
@@ -31,7 +29,7 @@ Using the `fig` command
       && git checkout dev \
       && sudo fig up
 
-### Build the image
+## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
@@ -40,9 +38,7 @@ Using the `fig` command
       && sudo docker build -t simpledrupalcloud/mysqld:dev . \
       && cd -
 
-## Options
-
-### Setting the MySQL root user password
+## Setting the MySQL root user password
 
 By starting a container for the very first time, you can pass the MySQL root user password as an environment variable `PASSWORD` to the container.
 
@@ -54,7 +50,7 @@ Changing the password is not currently supported.
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      busybox:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
+      simpledrupalcloud/data:dev tar czvf /backup/mysqlddata.tar.gz /mysqld/data
 
 ## Restore MySQL data from a backup
 
@@ -62,7 +58,7 @@ Changing the password is not currently supported.
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      busybox:latest tar xzvf /backup/mysqlddata.tar.gz
+      simpledrupalcloud/data:dev tar xzvf /backup/mysqlddata.tar.gz
 
 ## License
 
