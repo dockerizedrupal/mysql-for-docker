@@ -6,13 +6,13 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN chmod +x /src/build.sh
-RUN /src/build.sh
+RUN apt-get update
 
-RUN rm -rf /tmp/*
+RUN /src/build.sh
+RUN /src/clean.sh
 
 VOLUME ["/mysqld/data"]
 
 EXPOSE 3306
 
-ENTRYPOINT ["/src/run.sh"]
+CMD ["/src/run.sh"]
