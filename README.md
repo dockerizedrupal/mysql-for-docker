@@ -48,7 +48,7 @@ Changing the password is not currently supported.
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
+      simpledrupalcloud/base:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
 
 ## Restore MySQL data from a backup
 
@@ -56,7 +56,7 @@ Changing the password is not currently supported.
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar xzvf /backup/mysqlddata.tar.gz
+      simpledrupalcloud/base:latest tar xzvf /backup/mysqlddata.tar.gz
 
 ## License
 
