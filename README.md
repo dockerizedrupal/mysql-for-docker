@@ -64,7 +64,7 @@ Restore a single MySQL data container from a backup
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld/data \
-      simpledrupalcloud/data:dev
+      simpledrupalcloud/data:latest
 
     sudo docker run \
       --rm \
