@@ -60,6 +60,6 @@ elif [ "${1}" = "purge" ]; then
   CONTAINERS="$(mysqlddata_containers)"
 
   if [ -n "${CONTAINERS}" ]; then
-    sudo docker rm -f "${CONTAINER}"
+    sudo docker rm -f ${CONTAINERS}
   fi
 fi
