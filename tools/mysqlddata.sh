@@ -18,7 +18,7 @@ unknown_command() {
   exit 1
 }
 
-if [ "${#}" -lt 2 ]; then
+if [ -z "${1}" ]; then
   unknown_command
 fi
 
