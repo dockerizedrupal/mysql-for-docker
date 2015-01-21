@@ -3,7 +3,7 @@
 WORKING_DIR="$(pwd)"
 
 help() {
-  echo "Usage: mysqlddata <export|import>"
+  echo "Usage: mysqlddata <export|import|purge>"
 
   exit 1
 }
@@ -22,9 +22,13 @@ if [ -z "${1}" ]; then
   unknown_command
 fi
 
-CONTAINERS="$(sudo docker ps -a | grep mysqlddata | awk '{ print $1 }')"
+mysqlddata_containers() {
+  echo "$(sudo docker ps -a | grep mysqlddata | awk '{ print $1 }')"
+}
 
 if [ "${1}" = "export" ]; then
+  CONTAINERS="$(mysqlddata_containers)"
+
   if [ -n "${CONTAINERS}" ]; then
     for CONTAINER in ${CONTAINERS}; do
       CONTAINER_NAME="$(docker inspect --format='{{.Name}}' ${CONTAINER} | cut -c 2-)"
@@ -52,4 +56,10 @@ elif [ "${1}" = "import" ]; then
       -v "${WORKING_DIR}:/backup" \
       simpledrupalcloud/base:dev tar xzvf "/backup/${CONTAINER}.tar.gz"
   done
+elif [ "${1}" = "purge" ]; then
+  CONTAINERS="$(mysqlddata_containers)"
+
+  if [ -n "${CONTAINERS}" ]; then
+    sudo docker rm -f "${CONTAINER}"
+  fi
 fi
