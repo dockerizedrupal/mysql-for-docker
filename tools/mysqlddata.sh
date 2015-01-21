@@ -3,7 +3,7 @@
 WORKING_DIR="$(pwd)"
 
 help() {
-  echo "mysqlddata: Usage: mysqlddata <export|import>"
+  echo "Usage: mysqlddata <export|import>"
 
   exit 1
 }
@@ -13,7 +13,7 @@ if [ "${1}" == "-h" ] || [ "${1}" == "--help" ]; then
 fi
 
 unknown_command() {
-  output_error "mysqlddata: Unknown command. See 'mysqlddata --help'"
+  echo "Unknown command. See 'mysqlddata --help'"
 
   exit 1
 }
