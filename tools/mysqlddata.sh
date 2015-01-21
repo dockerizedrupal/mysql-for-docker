@@ -3,7 +3,7 @@
 WORKING_DIR="$(pwd)"
 
 help() {
-  echo "Usage: mysqlddata <export|import|purge>"
+  echo "Usage: mysqlddata <backup|restore|purge>"
 
   exit 1
 }
@@ -26,7 +26,7 @@ mysqlddata_containers() {
   echo "$(sudo docker ps -a | grep mysqlddata | awk '{ print $1 }')"
 }
 
-if [ "${1}" = "export" ]; then
+if [ "${1}" = "backup" ]; then
   CONTAINERS="$(mysqlddata_containers)"
 
   if [ -n "${CONTAINERS}" ]; then
@@ -40,7 +40,7 @@ if [ "${1}" = "export" ]; then
         simpledrupalcloud/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld/data
     done
   fi
-elif [ "${1}" = "import" ]; then
+elif [ "${1}" = "restore" ]; then
   for FILE in *.tar.gz; do
     CONTAINER="${FILE%%.*}"
 
