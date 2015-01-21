@@ -46,19 +46,31 @@ Changing the password is not currently supported.
 
 ## Back up MySQL data
 
+Back up a single data container
+
     sudo docker run \
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
       simpledrupalcloud/base:dev tar czvf /backup/mysqlddata.tar.gz /mysqld/data
 
+Back up all MySQL data containers on your host
+
+    sudo tools/mysqlddata export
+
 ## Restore MySQL data from a backup
+
+Restore a single MySQL data container
 
     sudo docker run \
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
       simpledrupalcloud/base:dev tar xzvf /backup/mysqlddata.tar.gz
+
+Restore all MySQL data containers
+
+    sudo tools/mysqlddata import
 
 ## License
 
