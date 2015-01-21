@@ -3,7 +3,7 @@
 WORKING_DIR="$(pwd)"
 
 help() {
-  echo "mysqlddata: Usage: mysqlddata <export|restore>"
+  echo "mysqlddata: Usage: mysqlddata <export|import>"
 
   exit 1
 }
@@ -36,7 +36,7 @@ if [ "${1}" = "export" ]; then
         simpledrupalcloud/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld/data
     done
   fi
-elif [ "${1}" = "restore" ]; then
+elif [ "${1}" = "import" ]; then
   for FILE in *.tar.gz; do
     CONTAINER="${FILE%%.*}"
 
