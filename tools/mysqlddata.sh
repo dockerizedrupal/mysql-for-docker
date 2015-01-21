@@ -3,7 +3,7 @@
 WORKING_DIR="$(pwd)"
 
 help() {
-  echo "Usage: mysqlddata <backup|restore|purge>"
+  echo "Usage: mysqlddata <backup|restore|rm>"
 
   exit 1
 }
@@ -56,7 +56,7 @@ elif [ "${1}" = "restore" ]; then
       -v "${WORKING_DIR}:/backup" \
       simpledrupalcloud/base:dev tar xzvf "/backup/${CONTAINER}.tar.gz"
   done
-elif [ "${1}" = "purge" ]; then
+elif [ "${1}" = "rm" ]; then
   CONTAINERS="$(mysqlddata_containers)"
 
   if [ -n "${CONTAINERS}" ]; then
