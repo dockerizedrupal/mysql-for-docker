@@ -62,4 +62,6 @@ elif [ "${1}" = "rm" ]; then
   if [ -n "${CONTAINERS}" ]; then
     sudo docker rm -f ${CONTAINERS}
   fi
+else
+  unknown_command
 fi
