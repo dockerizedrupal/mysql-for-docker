@@ -42,11 +42,11 @@ Using the `fig` command
 
 By starting a container for the very first time, you can pass the MySQL root user password as an environment variable `PASSWORD` to the container.
 
-Changing the password is not currently supported.
+Changing the password afterwards is not currently supported.
 
 ## Back up MySQL data
 
-Back up a single data container
+Back up a single MySQL data container
 
     sudo docker run \
       --rm \
@@ -54,13 +54,19 @@ Back up a single data container
       -v $(pwd):/backup \
       simpledrupalcloud/base:dev tar czvf /backup/mysqlddata.tar.gz /mysqld/data
 
-Back up all MySQL data containers on your host
+Back up all MySQL data containers running on your host
 
-    sudo tools/mysqlddata export
+    sudo tools/mysqlddata backup
 
 ## Restore MySQL data from a backup
 
-Restore a single MySQL data container
+Restore a single MySQL data container from a backup
+
+    CONTAINER="mysqlddata" && sudo docker run \
+      --name "${CONTAINER}" \
+      -h "${CONTAINER}" \
+      -v /mysqld/data \
+      simpledrupalcloud/data:dev
 
     sudo docker run \
       --rm \
@@ -68,9 +74,9 @@ Restore a single MySQL data container
       -v $(pwd):/backup \
       simpledrupalcloud/base:dev tar xzvf /backup/mysqlddata.tar.gz
 
-Restore all MySQL data containers
+Restore all MySQL data containers from a backup
 
-    sudo tools/mysqlddata import
+    sudo tools/mysqlddata restore
 
 ## License
 
