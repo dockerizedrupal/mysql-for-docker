@@ -37,7 +37,7 @@ if [ "${1}" = "backup" ]; then
         --rm \
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
-        simpledrupalcloud/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld/data
+        simpledrupalcloud/base:dev tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld/data
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -48,7 +48,7 @@ elif [ "${1}" = "restore" ]; then
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld/data \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     sudo docker run \
       --rm \
