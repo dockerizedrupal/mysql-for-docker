@@ -9,7 +9,7 @@ Using the `docker` command:
     CONTAINER="mysqlddata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /mysqld/data \
+      -v /mysqld \
       simpledrupalcloud/data:latest
 
     CONTAINER="mysqld" && sudo docker run \
@@ -50,7 +50,7 @@ Back up a single MySQL data container
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/mysqlddata.tar.gz /mysqld/data
+      simpledrupalcloud/base:latest tar czvf /backup/mysqlddata.tar.gz /mysqld
 
 Back up all MySQL data containers running on your host
 
@@ -63,7 +63,7 @@ Restore a single MySQL data container from a backup
     CONTAINER="mysqlddata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /mysqld/data \
+      -v /mysqld \
       simpledrupalcloud/data:latest
 
     sudo docker run \

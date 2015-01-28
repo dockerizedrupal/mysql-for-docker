@@ -11,4 +11,4 @@ mysqlddata:
   image: simpledrupalcloud/data:latest
   hostname: mysqlddata
   volumes:
-    - /mysqld/data
+    - /mysqld

@@ -12,7 +12,7 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/mysqld/data"]
+VOLUME ["/mysqld"]
 
 EXPOSE 3306
 

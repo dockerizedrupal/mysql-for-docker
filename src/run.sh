@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+puppet apply --modulepath=/src/run/modules /src/clean/run.pp
+
 PASSWORD=$([ "${PASSWORD}" ] && echo "${PASSWORD}" || echo "root")
 
 DATADIR="/mysqld/data"
