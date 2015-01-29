@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-puppet apply --modulepath=/src/run/modules /src/clean/run.pp
+puppet apply --modulepath=/src/run/modules /src/run/run.pp
 
 PASSWORD=$([ "${PASSWORD}" ] && echo "${PASSWORD}" || echo "root")
 
