@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+shopt -s nullglob
+
 WORKING_DIR="$(pwd)"
 
 help() {
