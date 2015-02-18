@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-shopt -s nullglob
-
 WORKING_DIR="$(pwd)"
 
 help() {
@@ -27,6 +25,8 @@ fi
 mysqlddata_containers() {
   echo "$(sudo docker ps -a | grep mysqlddata | awk '{ print $1 }')"
 }
+
+shopt -s nullglob
 
 if [ "${1}" = "backup" ]; then
   CONTAINERS="$(mysqlddata_containers)"
