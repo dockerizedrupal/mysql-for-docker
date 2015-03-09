@@ -7,10 +7,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ADD ./src /src
 
-RUN apt-get update && /src/build.sh && /src/clean.sh
+RUN /src/entrypoint.sh build
 
 VOLUME ["/mysqld"]
 
 EXPOSE 3306
 
-CMD ["/src/run.sh"]
+CMD ["/src/entrypoint.sh", "run"]

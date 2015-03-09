@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-puppet apply --modulepath=/src/run/modules /src/run/run.pp
+puppet apply --modulepath=/src/mysqld/run/modules /src/mysqld/run/run.pp
 
-PASSWORD=$([ "${PASSWORD}" ] && echo "${PASSWORD}" || echo "root")
+DATA="/mysqld/data"
 
-DATADIR="/mysqld/data"
-
-if [ ! "$(ls -A ${DATADIR})" ]; then
-  /usr/bin/mysql_install_db --user=mysql > /dev/null 2>&1
-
+if [ ! "$(ls -A ${DATA})" ]; then
+  /usr/bin/mysql_install_db --user="mysql" > /dev/null 2>&1
   /usr/bin/mysqld_safe > /dev/null 2>&1 &
 
   TIMEOUT=30
@@ -28,10 +25,9 @@ if [ ! "$(ls -A ${DATADIR})" ]; then
   mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
 
   /usr/bin/mysqladmin -u root password "${PASSWORD}"
-
   /usr/bin/mysqladmin -u root -p"${PASSWORD}" shutdown
 fi
 
-chown -R mysql.mysql "${DATADIR}"
+chown -R mysql.mysql "${DATA}"
 
 /usr/bin/supervisord
