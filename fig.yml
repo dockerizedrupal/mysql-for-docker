@@ -1,5 +1,5 @@
 mysqld:
-  image: simpledrupalcloud/mysqld:latest
+  image: viljaste/mysqld:latest
   hostname: mysqld
   ports:
     - "3306:3306"
@@ -8,7 +8,7 @@ mysqld:
   environment:
     - PASSWORD=root
 mysqlddata:
-  image: simpledrupalcloud/data:latest
+  image: viljaste/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld

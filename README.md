@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld \
-      simpledrupalcloud/data:latest
+      viljaste/data:latest
 
     CONTAINER="mysqld" && sudo docker run \
       --name "${CONTAINER}" \
@@ -19,7 +19,7 @@ Using the `docker` command:
       --volumes-from mysqlddata \
       -e PASSWORD="root" \
       -d \
-      simpledrupalcloud/mysqld:latest
+      viljaste/mysqld:latest
 
 Using the `fig` command
 
@@ -33,7 +33,7 @@ Using the `fig` command
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/mysqld:latest . \
+      && sudo docker build -t viljaste/mysqld:latest . \
       && cd -
 
 ## Setting the MySQL root user password
@@ -50,7 +50,7 @@ Back up a single MySQL data container
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/mysqlddata.tar.gz /mysqld
+      viljaste/base:latest tar czvf /backup/mysqlddata.tar.gz /mysqld
 
 Back up all MySQL data containers running on your host
 
@@ -64,13 +64,13 @@ Restore a single MySQL data container from a backup
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld \
-      simpledrupalcloud/data:latest
+      viljaste/data:latest
 
     sudo docker run \
       --rm \
       --volumes-from mysqlddata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar xzvf /backup/mysqlddata.tar.gz
+      viljaste/base:latest tar xzvf /backup/mysqlddata.tar.gz
 
 Restore all MySQL data containers from a backup
 

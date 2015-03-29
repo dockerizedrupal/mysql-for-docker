@@ -49,7 +49,7 @@ if [ "${1}" = "backup" ]; then
         --rm \
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
-        simpledrupalcloud/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld
+        viljaste/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -60,13 +60,13 @@ elif [ "${1}" = "restore" ]; then
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld \
-      simpledrupalcloud/data:latest
+      viljaste/data:latest
 
     docker run \
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
-      simpledrupalcloud/base:latest tar xzvf "/backup/${CONTAINER}.tar.gz"
+      viljaste/base:latest tar xzvf "/backup/${CONTAINER}.tar.gz"
   done
 elif [ "${1}" = "rm" ]; then
   CONTAINERS="$(mysqlddata_containers)"
