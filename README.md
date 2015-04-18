@@ -21,13 +21,13 @@ Using the `docker` command:
       -d \
       viljaste/mysqld:dev
 
-Using the `fig` command
+Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout dev \
-      && sudo fig up
+      && sudo docker-compose up
 
 ## Build the image
 
