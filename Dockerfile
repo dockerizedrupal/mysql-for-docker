@@ -12,4 +12,4 @@ VOLUME ["/mysqld"]
 
 EXPOSE 3306
 
-CMD ["/src/entrypoint.sh", "run"]
+ENTRYPOINT ["/src/entrypoint.sh", "run"]
