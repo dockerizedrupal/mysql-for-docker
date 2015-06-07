@@ -18,20 +18,23 @@ Using the `docker` command:
       -p 3306:3306 \
       --volumes-from mysqlddata \
       -e PASSWORD="root" \
+      -e GENERAL_LOG="0" \
+      -e SLOW_QUERY_LOG="0" \
+      -e LONG_QUERY_TIME="1" \
       -d \
       viljaste/mysqld:latest
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
+      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-mysqld.git "${TMP}" \
+      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker build -t viljaste/mysqld:latest . \
       && cd -

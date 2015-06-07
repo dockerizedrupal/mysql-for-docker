@@ -1,4 +1,5 @@
-.git
+.idea
+git
 .gitignore
 README.md
 LICENSE.md

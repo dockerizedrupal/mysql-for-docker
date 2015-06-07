@@ -7,6 +7,9 @@ mysqld:
     - mysqlddata
   environment:
     - PASSWORD=root
+    - GENERAL_LOG=0
+    - SLOW_QUERY_LOG=0
+    - LONG_QUERY_TIME=1
 mysqlddata:
   image: viljaste/data:latest
   hostname: mysqlddata
