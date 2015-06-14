@@ -49,7 +49,8 @@ if [ "${1}" = "backup" ]; then
         --rm \
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
-        viljaste/base:latest tar czvf "/backup/${CONTAINER_NAME}.tar.gz" /mysqld
+        --entrypoint /bin/bash \
+        viljaste/base:latest -c "tar czvf "/backup/${CONTAINER_NAME}.tar.gz /mysqld"
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -66,7 +67,8 @@ elif [ "${1}" = "restore" ]; then
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
-      viljaste/base:latest tar xzvf "/backup/${CONTAINER}.tar.gz"
+      --entrypoint /bin/bash \
+      viljaste/base:latest -c "tar xzvf /backup/${CONTAINER}.tar.gz"
   done
 elif [ "${1}" = "rm" ]; then
   CONTAINERS="$(mysqlddata_containers)"
