@@ -50,7 +50,7 @@ if [ "${1}" = "backup" ]; then
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
         --entrypoint /bin/bash \
-        viljaste/base:latest -c "tar czvf "/backup/${CONTAINER_NAME}.tar.gz /mysqld"
+        viljaste/base:latest -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysqld"
     done
   fi
 elif [ "${1}" = "restore" ]; then
