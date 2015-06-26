@@ -1,10 +1,10 @@
-class mysqld {
-  require mysqld::packages
-  require mysqld::supervisor
+class build::mysqld {
+  require build::mysqld::packages
+  require build::mysqld::supervisor
 
   file { '/etc/mysql/my.cnf':
     ensure => present,
-    source => 'puppet:///modules/mysqld/etc/mysql/my.cnf',
+    source => 'puppet:///modules/build/etc/mysql/my.cnf',
     mode => 644
   }
 

@@ -1,4 +1,4 @@
-class mysqld::packages {
+class build::mysqld::packages {
   package {[
       'mysql-server'
     ]:
