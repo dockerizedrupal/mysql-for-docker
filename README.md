@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     CONTAINER="mysqld" && sudo docker run \
       --name "${CONTAINER}" \
@@ -22,21 +22,21 @@ Using the `docker` command:
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -d \
-      viljaste/mysqld:latest
+      dockerizedrupal/mysqld:latest
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-mysqld.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-mysqld.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-mysqld.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t viljaste/mysqld:latest . \
+      && sudo docker build -t dockerizedrupal/mysqld:latest . \
       && cd -
 
 ## Back up MySQL data

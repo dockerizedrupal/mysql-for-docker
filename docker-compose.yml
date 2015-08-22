@@ -1,5 +1,5 @@
 mysqld:
-  image: viljaste/mysqld:latest
+  image: dockerizedrupal/mysqld:latest
   hostname: mysqld
   ports:
     - "3306:3306"
@@ -11,7 +11,7 @@ mysqld:
     - SLOW_QUERY_LOG=0
     - LONG_QUERY_TIME=1
 mysqlddata:
-  image: viljaste/data:latest
+  image: dockerizedrupal/data:latest
   hostname: mysqlddata
   volumes:
     - /mysqld

@@ -50,7 +50,7 @@ if [ "${1}" = "backup" ]; then
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
         --entrypoint /bin/bash \
-        viljaste/base:latest -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysqld"
+        dockerizedrupal/base:latest -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysqld"
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -61,14 +61,14 @@ elif [ "${1}" = "restore" ]; then
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysqld \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     docker run \
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
       --entrypoint /bin/bash \
-      viljaste/base:latest -c "tar xzvf /backup/${CONTAINER}.tar.gz"
+      dockerizedrupal/base:latest -c "tar xzvf /backup/${CONTAINER}.tar.gz"
   done
 else
   unknown_command

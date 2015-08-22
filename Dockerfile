@@ -1,4 +1,4 @@
-FROM viljaste/base:latest
+FROM dockerizedrupal/base:latest
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
