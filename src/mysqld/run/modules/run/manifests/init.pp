@@ -1,3 +1,0 @@
-class run {
-  include mysqld
-}

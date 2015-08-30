@@ -1,17 +1,17 @@
-mysqld:
-  image: dockerizedrupal/mysqld:latest
-  hostname: mysqld
+mysql:
+  image: dockerizedrupal/mysql:latest
+  hostname: mysql
   ports:
     - "3306:3306"
   volumes_from:
-    - mysqlddata
+    - mysql-data
   environment:
     - PASSWORD=root
     - GENERAL_LOG=0
     - SLOW_QUERY_LOG=0
     - LONG_QUERY_TIME=1
-mysqlddata:
+mysql-data:
   image: dockerizedrupal/data:latest
-  hostname: mysqlddata
+  hostname: mysql-data
   volumes:
-    - /mysqld
+    - /mysql

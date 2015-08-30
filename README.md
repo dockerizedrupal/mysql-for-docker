@@ -1,4 +1,4 @@
-# docker-mysqld
+# docker-mysql
 
 A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) server.
 
@@ -6,46 +6,46 @@ A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) ser
 
 Using the `docker` command:
 
-    CONTAINER="mysqlddata" && sudo docker run \
+    CONTAINER="mysql-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /mysqld \
+      -v /mysql \
       dockerizedrupal/data:latest
 
-    CONTAINER="mysqld" && sudo docker run \
+    CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 3306:3306 \
-      --volumes-from mysqlddata \
+      --volumes-from mysql-data \
       -e PASSWORD="root" \
       -e GENERAL_LOG="0" \
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -d \
-      dockerizedrupal/mysqld:latest
+      dockerizedrupal/mysql:latest
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-mysqld.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-mysqld.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/mysqld:latest . \
+      && sudo docker build -t dockerizedrupal/mysql:latest . \
       && cd -
 
 ## Back up MySQL data
 
-    sudo tools/mysqlddata backup
+    sudo tools/mysqldata backup
 
 ## Restore MySQL data from a backup
 
-    sudo tools/mysqlddata restore
+    sudo tools/mysqldata restore
 
 ## License
 

@@ -8,7 +8,7 @@ ADD ./src /src
 
 RUN /src/entrypoint.sh build
 
-VOLUME ["/mysqld"]
+VOLUME ["/mysql"]
 
 EXPOSE 3306
 
