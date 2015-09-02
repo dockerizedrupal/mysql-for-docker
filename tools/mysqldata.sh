@@ -50,7 +50,7 @@ if [ "${1}" = "backup" ]; then
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
         --entrypoint /bin/bash \
-        dockerizedrupal/base:latest -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
+        dockerizedrupal/base-debian-jessie:1.0.1 -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -61,14 +61,14 @@ elif [ "${1}" = "restore" ]; then
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysql \
-      dockerizedrupal/data:latest
+      dockerizedrupal/data:1.0.2
 
     docker run \
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
       --entrypoint /bin/bash \
-      dockerizedrupal/base:latest -c "tar xzvf /backup/${CONTAINER}.tar.gz"
+      dockerizedrupal/base-debian-jessie:1.0.1 -c "tar xzvf /backup/${CONTAINER}.tar.gz"
   done
 else
   unknown_command

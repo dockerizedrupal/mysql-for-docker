@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysql \
-      dockerizedrupal/data:latest
+      dockerizedrupal/data:1.0.2
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -22,13 +22,14 @@ Using the `docker` command:
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -d \
-      dockerizedrupal/mysql:latest
+      dockerizedrupal/mysql:1.0.1
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
+      $$ git checkout 1.0.1 \
       && sudo docker-compose up
 
 ## Build the image
@@ -36,7 +37,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/mysql:latest . \
+      $$ git checkout 1.0.1 \
+      && sudo docker build -t dockerizedrupal/mysql:1.0.1 . \
       && cd -
 
 ## Back up MySQL data
