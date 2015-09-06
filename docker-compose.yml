@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:1.0.3
+  image: dockerizedrupal/mysql:1.0.4
   hostname: mysql
   ports:
     - "3306:3306"
@@ -11,7 +11,7 @@ mysql:
     - SLOW_QUERY_LOG=0
     - LONG_QUERY_TIME=1
 mysql-data:
-  image: dockerizedrupal/data:1.0.2
+  image: dockerizedrupal/data:1.0.3
   hostname: mysql-data
   volumes:
     - /mysql
