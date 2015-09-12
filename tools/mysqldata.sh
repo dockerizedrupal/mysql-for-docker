@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+VERSION="1.0.5"
+
 shopt -s nullglob
 
 WORKING_DIR="$(pwd)"
@@ -14,7 +16,9 @@ fi
 
 help() {
   cat << EOF
-mysqldata: Usage: mysqldata <backup|restore>
+Version: ${VERSION}
+
+Usage: mysqldata <backup|restore>
 EOF
 
   exit 1
