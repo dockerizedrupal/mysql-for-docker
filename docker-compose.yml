@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:1.0.7
+  image: dockerizedrupal/mysql:1.0.8
   hostname: mysql
   ports:
     - "3306:3306"
