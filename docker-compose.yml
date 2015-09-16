@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:1.0.8
+  image: dockerizedrupal/mysql:1.0.9
   hostname: mysql
   ports:
     - "3306:3306"
@@ -7,7 +7,6 @@ mysql:
     - mysql-data
   environment:
     - TIMEZONE=Etc/UTC
-    - PASSWORD=root
     - GENERAL_LOG=0
     - SLOW_QUERY_LOG=0
     - LONG_QUERY_TIME=1

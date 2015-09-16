@@ -5,6 +5,9 @@ puppet apply --modulepath=/src/mysql/run/modules /src/mysql/run/run.pp
 DATA="/mysql/data"
 
 if [ ! "$(ls -A ${DATA})" ]; then
+  USER="container"
+  PASSWORD="container"
+
   mysql_install_db --user="mysql" > /dev/null 2>&1
   mysqld_safe > /dev/null 2>&1 &
 
@@ -23,9 +26,9 @@ if [ ! "$(ls -A ${DATA})" ]; then
 
   mysql -u root -e "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
   mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
+  mysql -u root -e "RENAME USER 'root' TO '${USER}';"
 
-  mysqladmin -u root password "${PASSWORD}"
-  mysqladmin -u root -p"${PASSWORD}" shutdown
+  mysqladmin -u "${USER}" -p"${PASSWORD}" shutdown
 fi
 
 chown -R mysql.mysql "${DATA}"

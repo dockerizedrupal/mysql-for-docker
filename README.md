@@ -18,19 +18,18 @@ Using the `docker` command:
       -p 3306:3306 \
       --volumes-from mysql-data \
       -e TIMEZONE="Etc/UTC" \
-      -e PASSWORD="root" \
       -e GENERAL_LOG="0" \
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -d \
-      dockerizedrupal/mysql:1.0.8
+      dockerizedrupal/mysql:1.0.9
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.8 \
+      && git checkout 1.0.9 \
       && sudo docker-compose up
 
 ## Build the image
@@ -38,8 +37,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.8 \
-      && sudo docker build -t dockerizedrupal/mysql:1.0.8 . \
+      && git checkout 1.0.9 \
+      && sudo docker build -t dockerizedrupal/mysql:1.0.9 . \
       && cd -
 
 ## Back up MySQL data

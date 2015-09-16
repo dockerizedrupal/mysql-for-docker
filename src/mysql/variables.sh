@@ -6,10 +6,6 @@ fi
 
 export FACTER_TIMEZONE="${TIMEZONE}"
 
-if [ -z "${PASSWORD}" ]; then
-  export PASSWORD="root"
-fi
-
 if [ -z "${GENERAL_LOG}" ]; then
   GENERAL_LOG="0"
 fi
