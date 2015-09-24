@@ -1,4 +1,4 @@
-FROM dockerizedrupal/base-debian-jessie:1.0.3
+FROM dockerizedrupal/base-debian-jessie:1.0.4
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 

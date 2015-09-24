@@ -4,8 +4,6 @@ A [Docker](https://docker.com/) container for [MySQL](http://www.mysql.com/) ser
 
 ## Run the container
 
-Using the `docker` command:
-
     CONTAINER="mysql-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -22,24 +20,20 @@ Using the `docker` command:
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -d \
-      dockerizedrupal/mysql:1.0.9
-
-Using the `docker-compose` command
-
-    TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
-      && cd "${TMP}" \
-      && git checkout 1.0.9 \
-      && sudo docker-compose up
+      dockerizedrupal/mysql:1.0.10
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.9 \
-      && sudo docker build -t dockerizedrupal/mysql:1.0.9 . \
+      && git checkout 1.0.10 \
+      && sudo docker build -t dockerizedrupal/mysql:1.0.10 . \
       && cd -
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
 
 ## Back up MySQL data
 
