@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="1.0.10"
+VERSION="1.1.0"
 
 shopt -s nullglob
 
@@ -54,7 +54,7 @@ if [ "${1}" = "backup" ]; then
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
         --entrypoint /bin/bash \
-        dockerizedrupal/base-debian-jessie:1.0.3 -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
+        dockerizedrupal/base-debian-jessie:1.1.0 -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -65,14 +65,14 @@ elif [ "${1}" = "restore" ]; then
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /mysql \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     docker run \
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
       --entrypoint /bin/bash \
-      dockerizedrupal/base-debian-jessie:1.0.3 -c "tar xzvf /backup/${CONTAINER}.tar.gz"
+      dockerizedrupal/base-debian-jessie:1.1.0 -c "tar xzvf /backup/${CONTAINER}.tar.gz"
   done
 else
   unknown_command
