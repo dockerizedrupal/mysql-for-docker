@@ -2,6 +2,8 @@
 
 A Docker image for [MySQL](http://www.mysql.com/) server that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
 
+The MySQL root user is `container` and password is also `container`.
+
 ## Run the container
 
     CONTAINER="mysql-data" && sudo docker run \
