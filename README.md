@@ -1,6 +1,8 @@
 # docker-mysql
 
-A Docker image for [MySQL](http://www.mysql.com/) server that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
+A Docker image for [MySQL](http://www.mysql.com/) server.
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 The MySQL root user is `container` and password is also `container`.
 
