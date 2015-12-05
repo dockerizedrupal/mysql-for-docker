@@ -89,6 +89,10 @@ module.exports = function(grunt) {
             {
               match: 'VERSION="' + current_version + '"',
               replacement: 'VERSION="' + new_version + '"'
+            },
+            {
+              match: 'dockerizedrupal/mysql:' + current_version,
+              replacement: 'dockerizedrupal/mysql:' + new_version
             }
           ],
           usePrefix: false
