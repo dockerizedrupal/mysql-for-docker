@@ -1,5 +1,5 @@
-var current_version = '1.0.10';
-var new_version = '1.1.0';
+var current_version = '1.1.0';
+var new_version = '1.1.1';
 
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-replace');
@@ -98,6 +98,25 @@ module.exports = function(grunt) {
             expand: true,
             src: [
               'tools/mysqldata.sh'
+            ]
+          }
+        ]
+      },
+      task6: {
+        options: {
+          patterns: [
+            {
+              match: 'VERSION = "' + current_version + '"',
+              replacement: 'VERSION = "' + new_version + '"'
+            }
+          ],
+          usePrefix: false
+        },
+        files: [
+          {
+            expand: true,
+            src: [
+              'Vagrantfile'
             ]
           }
         ]

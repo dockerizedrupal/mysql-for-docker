@@ -9,3 +9,6 @@ Gruntfile.js
 package.json
 node_modules
 tools
+Vagrantfile
+.vagrant
+package.box

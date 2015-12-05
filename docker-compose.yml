@@ -1,17 +1,18 @@
 mysql:
-  image: dockerizedrupal/mysql:1.1.0
+  image: dockerizedrupal/mysql:1.1.1
   hostname: mysql
   ports:
     - "3306:3306"
   volumes_from:
     - mysql-data
   environment:
-    - TIMEZONE=Etc/UTC
-    - GENERAL_LOG=0
-    - SLOW_QUERY_LOG=0
-    - LONG_QUERY_TIME=1
+    TIMEZONE: Etc/UTC
+    GENERAL_LOG: 0
+    SLOW_QUERY_LOG: 0
+    LONG_QUERY_TIME: 1
 mysql-data:
-  image: dockerizedrupal/data:1.1.0
+  image: dockerizedrupal/mysql:1.1.1
   hostname: mysql-data
+  entrypoint: ["/bin/echo", "Data-only container for MySQL."]
   volumes:
     - /mysql
