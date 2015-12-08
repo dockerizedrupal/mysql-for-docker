@@ -1,6 +1,7 @@
 class build::mysql {
   require build::mysql::packages
   require build::mysql::supervisor
+  require build::mysql::logs
 
   file { '/etc/mysql/my.cnf':
     ensure => present,

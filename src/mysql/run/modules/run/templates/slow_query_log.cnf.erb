@@ -1,5 +1,4 @@
 [mysqld]
-slow-query-log = <%= @slow_query_log %>
-slow-query-log-file = /var/log/mysql/stderr.log
-long_query_time = 1
-log-queries-not-using-indexes
+slow_query_log = <%= @slow_query_log %>
+slow_query_log_file = /var/log/mysql/stderr.log
+long_query_time = <%= @long_query_time %>
