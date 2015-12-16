@@ -7,6 +7,10 @@ class run::mysql {
 
   include run::mysql::slow_query_log
 
+  if $log_queries_not_using_indexes == "On" {
+    include run::mysql::log_queries_not_using_indexes
+  }
+
   include run::mysql::query_cache_type
   include run::mysql::max_allowed_packet
   include run::mysql::key_buffer_size

@@ -24,6 +24,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e GENERAL_LOG="Off" \
       -e LOG_ERROR="Off" \
       -e SLOW_QUERY_LOG="Off" \
+      -e LOG_QUERIES_NOT_USING_INDEXES="Off" \
       -e LONG_QUERY_TIME="1" \
       -e QUERY_CACHE_TYPE="0" \
       -e QUERY_CACHE_SIZE="1M" \
