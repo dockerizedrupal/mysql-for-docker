@@ -7,19 +7,19 @@ fi
 export FACTER_TIMEZONE="${TIMEZONE}"
 
 if [ -z "${GENERAL_LOG}" ]; then
-  GENERAL_LOG="0"
+  GENERAL_LOG="Off"
 fi
 
 export FACTER_GENERAL_LOG="${GENERAL_LOG}"
 
 if [ -z "${LOG_ERROR}" ]; then
-  LOG_ERROR="0"
+  LOG_ERROR="Off"
 fi
 
 export FACTER_LOG_ERROR="${LOG_ERROR}"
 
 if [ -z "${SLOW_QUERY_LOG}" ]; then
-  SLOW_QUERY_LOG="0"
+  SLOW_QUERY_LOG="Off"
 fi
 
 export FACTER_SLOW_QUERY_LOG="${SLOW_QUERY_LOG}"
