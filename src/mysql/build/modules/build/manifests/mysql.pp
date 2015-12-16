@@ -12,4 +12,16 @@ class build::mysql {
   file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
     ensure => absent
   }
+
+  file { '/var/log/mysql/error.log':
+    ensure => absent
+  }
+
+  file { '/var/log/mysql.log':
+    ensure => absent
+  }
+
+  file { '/var/log/mysql.err':
+    ensure => absent
+  }
 }
