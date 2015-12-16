@@ -22,6 +22,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       --volumes-from mysql-data \
       -e TIMEZONE="Etc/UTC" \
       -e GENERAL_LOG="0" \
+      -e LOG_ERROR="0" \
       -e SLOW_QUERY_LOG="0" \
       -e LONG_QUERY_TIME="1" \
       -e QUERY_CACHE_TYPE="0" \

@@ -3,6 +3,10 @@ class run::mysql {
     include run::mysql::general_log
   }
 
+  if $log_error {
+    include run::mysql::log_error
+  }
+
   if $slow_query_log {
     include run::mysql::slow_query_log
   }

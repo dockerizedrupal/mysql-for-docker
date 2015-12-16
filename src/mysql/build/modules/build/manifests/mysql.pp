@@ -9,7 +9,7 @@ class build::mysql {
     mode => 644
   }
 
-  file { '/etc/mysql/conf.d/mysql_safe_syslog.cnf':
+  file { '/etc/mysql/conf.d/mysqld_safe_syslog.cnf':
     ensure => absent
   }
 }

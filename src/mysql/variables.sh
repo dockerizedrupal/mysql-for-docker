@@ -12,6 +12,12 @@ fi
 
 export FACTER_GENERAL_LOG="${GENERAL_LOG}"
 
+if [ -z "${LOG_ERROR}" ]; then
+  LOG_ERROR="0"
+fi
+
+export FACTER_LOG_ERROR="${LOG_ERROR}"
+
 if [ -z "${SLOW_QUERY_LOG}" ]; then
   SLOW_QUERY_LOG="0"
 fi
