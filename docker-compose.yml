@@ -18,6 +18,7 @@ mysql:
     KEY_BUFFER_SIZE: 16M
     THREAD_CACHE_SIZE: 8
     INNODB_BUFFER_POOL_SIZE: 128M
+    INNODB_FLUSH_LOG_AT_TRX_COMMIT: 1
 mysql-data:
   image: dockerizedrupal/mysql:1.2.0
   hostname: mysql-data

@@ -27,5 +27,9 @@ class run::mysql {
     include run::mysql::innodb_buffer_pool_size
   }
 
+  if $innodb_flush_log_at_trx_commit {
+    include run::mysql::innodb_flush_log_at_trx_commit
+  }
+
   bash_exec { 'mkdir -p /mysql/data': }
 }

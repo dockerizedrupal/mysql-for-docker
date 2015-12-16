@@ -32,6 +32,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e KEY_BUFFER_SIZE="16M" \
       -e KEY_BUFFER_SIZE="8" \
       -e INNODB_BUFFER_POOL_SIZE="128M" \
+      -e INNODB_FLUSH_LOG_AT_TRX_COMMIT="1" \
       -d \
       dockerizedrupal/mysql:1.2.0
 
