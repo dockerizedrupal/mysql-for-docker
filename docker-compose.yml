@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:1.2.0
+  image: dockerizedrupal/mysql:1.2.1
   hostname: mysql
   ports:
     - "3306:3306"
@@ -22,7 +22,7 @@ mysql:
     - INNODB_BUFFER_POOL_SIZE=128M
     - INNODB_FLUSH_LOG_AT_TRX_COMMIT=1
 mysql-data:
-  image: dockerizedrupal/mysql:1.2.0
+  image: dockerizedrupal/mysql:1.2.1
   hostname: mysql-data
   entrypoint: ["/bin/echo", "Data-only container for MySQL."]
   volumes:

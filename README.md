@@ -13,7 +13,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -h "${CONTAINER}" \
       -v /mysql \
       --entrypoint /bin/echo \
-      dockerizedrupal/mysql:1.2.0 "Data-only container for Jenkins."
+      dockerizedrupal/mysql:1.2.1 "Data-only container for Jenkins."
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -36,15 +36,15 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e INNODB_BUFFER_POOL_SIZE="128M" \
       -e INNODB_FLUSH_LOG_AT_TRX_COMMIT="1" \
       -d \
-      dockerizedrupal/mysql:1.2.0
+      dockerizedrupal/mysql:1.2.1
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.2.0 \
-      && sudo docker build -t dockerizedrupal/mysql:1.2.0 . \
+      && git checkout 1.2.1 \
+      && sudo docker build -t dockerizedrupal/mysql:1.2.1 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
