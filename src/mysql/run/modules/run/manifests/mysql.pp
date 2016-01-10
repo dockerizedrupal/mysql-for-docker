@@ -17,6 +17,7 @@ class run::mysql {
   include run::mysql::thread_cache_size
   include run::mysql::innodb_buffer_pool_size
   include run::mysql::innodb_flush_log_at_trx_commit
+  include run::mysql::max_connections
 
   bash_exec { 'mkdir -p /mysql/data': }
 }

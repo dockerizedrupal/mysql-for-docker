@@ -1,10 +1,10 @@
+> **Notice:** *This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.*
+
 # docker-mysql
 
 A Docker image for [MySQL](http://www.mysql.com/) server.
 
 The MySQL root user is `container` and password is also `container`.
-
-This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
@@ -13,7 +13,7 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -h "${CONTAINER}" \
       -v /mysql \
       --entrypoint /bin/echo \
-      dockerizedrupal/mysql:1.2.1 "Data-only container for Jenkins."
+      dockerizedrupal/mysql:1.2.2 "Data-only container for Jenkins."
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -35,16 +35,17 @@ This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) in
       -e KEY_BUFFER_SIZE="8" \
       -e INNODB_BUFFER_POOL_SIZE="128M" \
       -e INNODB_FLUSH_LOG_AT_TRX_COMMIT="1" \
+      -e MAX_CONNECTIONS="151" \
       -d \
-      dockerizedrupal/mysql:1.2.1
+      dockerizedrupal/mysql:1.2.2
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.2.1 \
-      && sudo docker build -t dockerizedrupal/mysql:1.2.1 . \
+      && git checkout 1.2.2 \
+      && sudo docker build -t dockerizedrupal/mysql:1.2.2 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
