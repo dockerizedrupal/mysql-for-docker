@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ -z "${DEFAULT_DB}" ]; then
+  DEFAULT_DB="container"
+fi
+
 if [ -z "${TIMEZONE}" ]; then
   TIMEZONE="Etc/UTC"
 fi
