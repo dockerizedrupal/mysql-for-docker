@@ -27,7 +27,8 @@ if [ ! "$(ls -A ${DATA})" ]; then
   mysql -u root -e "CREATE USER 'root'@'%' IDENTIFIED BY '${PASSWORD}';"
   mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;"
   mysql -u root -e "RENAME USER 'root' TO '${USER}';"
-
+  mysql -u root -e "CREATE DATABASE ${DEFAULT_DB};"
+  
   mysqladmin -u "${USER}" -p"${PASSWORD}" shutdown
 fi
 
