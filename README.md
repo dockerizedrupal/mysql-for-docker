@@ -13,7 +13,7 @@ The MySQL root user is `container` and password is also `container`.
       -h "${CONTAINER}" \
       -v /mysql \
       --entrypoint /bin/echo \
-      dockerizedrupal/mysql:1.2.2 "Data-only container for Jenkins."
+      dockerizedrupal/mysql:1.2.3 "Data-only container for Jenkins."
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -37,15 +37,15 @@ The MySQL root user is `container` and password is also `container`.
       -e INNODB_FLUSH_LOG_AT_TRX_COMMIT="1" \
       -e MAX_CONNECTIONS="151" \
       -d \
-      dockerizedrupal/mysql:1.2.2
+      dockerizedrupal/mysql:1.2.3
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.2.2 \
-      && sudo docker build -t dockerizedrupal/mysql:1.2.2 . \
+      && git checkout 1.2.3 \
+      && sudo docker build -t dockerizedrupal/mysql:1.2.3 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
