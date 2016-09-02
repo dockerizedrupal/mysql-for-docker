@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:1.2.3
+  image: dockerizedrupal/mysql:1.2.4
   hostname: mysql
   ports:
     - "3306:3306"
@@ -23,7 +23,7 @@ mysql:
     - INNODB_FLUSH_LOG_AT_TRX_COMMIT=1
     - MAX_CONNECTIONS=151
 mysql-data:
-  image: dockerizedrupal/mysql:1.2.3
+  image: dockerizedrupal/mysql:1.2.4
   hostname: mysql-data
   entrypoint: ["/bin/echo", "Data-only container for MySQL."]
   volumes:

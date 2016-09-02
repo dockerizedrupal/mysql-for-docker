@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="1.2.3"
+VERSION="1.2.4"
 
 shopt -s nullglob
 
@@ -54,7 +54,7 @@ if [ "${1}" = "backup" ]; then
         --volumes-from "${CONTAINER}" \
         -v "${WORKING_DIR}:/backup" \
         --entrypoint /bin/bash \
-        dockerizedrupal/mysql:1.2.3 -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
+        dockerizedrupal/mysql:1.2.4 -c "tar czvf /backup/${CONTAINER_NAME}.tar.gz /mysql"
     done
   fi
 elif [ "${1}" = "restore" ]; then
@@ -66,14 +66,14 @@ elif [ "${1}" = "restore" ]; then
       -h "${CONTAINER}" \
       -v /mysql \
       --entrypoint /bin/echo \
-      dockerizedrupal/mysql:1.2.3 "Data-only container for MySQL."
+      dockerizedrupal/mysql:1.2.4 "Data-only container for MySQL."
 
     docker run \
       --rm \
       --volumes-from "${CONTAINER}" \
       -v "${WORKING_DIR}:/backup" \
       --entrypoint /bin/bash \
-      dockerizedrupal/mysql:1.2.3 -c "tar xzvf /backup/${CONTAINER}.tar.gz"
+      dockerizedrupal/mysql:1.2.4 -c "tar xzvf /backup/${CONTAINER}.tar.gz"
   done
 else
   unknown_command
