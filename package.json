@@ -1,9 +1,9 @@
 {
-  "name": "docker-mysql",
-  "version": "1.2.4",
+  "name": "mysql-for-docker",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dockerizedrupal/docker-mysql.git"
+    "url": "https://github.com/dockerizedrupal/mysql-for-docker.git"
   },
   "license": "MIT",
   "dependencies": {

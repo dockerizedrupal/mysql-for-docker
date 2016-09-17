@@ -1,6 +1,4 @@
-> **Notice:** *This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.*
-
-# docker-mysql
+# mysql-for-docker
 
 A Docker image for [MySQL](http://www.mysql.com/) server.
 
@@ -13,7 +11,7 @@ The MySQL root user is `container` and password is also `container`.
       -h "${CONTAINER}" \
       -v /mysql \
       --entrypoint /bin/echo \
-      dockerizedrupal/mysql:1.2.4 "Data-only container for MySQL."
+      dockerizedrupal/mysql:2.0.0 "Data-only container for MySQL."
 
     CONTAINER="mysql" && sudo docker run \
       --name "${CONTAINER}" \
@@ -37,15 +35,15 @@ The MySQL root user is `container` and password is also `container`.
       -e INNODB_FLUSH_LOG_AT_TRX_COMMIT="1" \
       -e MAX_CONNECTIONS="151" \
       -d \
-      dockerizedrupal/mysql:1.2.4
+      dockerizedrupal/mysql:2.0.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-mysql.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/mysql-for-docker.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.2.4 \
-      && sudo docker build -t dockerizedrupal/mysql:1.2.4 . \
+      && git checkout 2.0.0 \
+      && sudo docker build -t dockerizedrupal/mysql:2.0.0 . \
       && cd -
 
 ## Back up MySQL data

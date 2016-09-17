@@ -1,4 +1,4 @@
-VERSION = "1.2.4"
+VERSION = "2.0.0"
 
 required_plugins = %w(vagrant-vbguest)
 
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "mysql"
 
   config.vm.provider "virtualbox" do |v|
-    name = "dockerizedrupal-docker-mysql-" + VERSION
+    name = "dockerizedrupal-mysql-for-docker-" + VERSION
 
     name.gsub!(".", "-")
 
