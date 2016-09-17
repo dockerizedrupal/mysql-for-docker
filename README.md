@@ -1,6 +1,6 @@
 # mysql-for-docker
 
-A Docker image for [MySQL](http://www.mysql.com/) server.
+A Docker image for [MySQL](http://www.mysql.com/).
 
 The MySQL root user is `container` and password is also `container`.
 
