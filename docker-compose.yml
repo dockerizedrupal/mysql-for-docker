@@ -1,5 +1,5 @@
 mysql:
-  image: dockerizedrupal/mysql:2.0.0
+  image: dockerizedrupal/mysql:2.0.1
   hostname: mysql
   ports:
     - "3306:3306"
@@ -16,14 +16,14 @@ mysql:
     - QUERY_CACHE_SIZE=1M
     - QUERY_CACHE_LIMIT=1M
     - QUERY_CACHE_MIN_RES_UNIT=4K
-    - MAX_ALLOWED_PACKET=16M
+    - MAX_ALLOWED_PACKET=512M
     - KEY_BUFFER_SIZE=16M
     - THREAD_CACHE_SIZE=8
     - INNODB_BUFFER_POOL_SIZE=128M
     - INNODB_FLUSH_LOG_AT_TRX_COMMIT=1
     - MAX_CONNECTIONS=151
 mysql-data:
-  image: dockerizedrupal/mysql:2.0.0
+  image: dockerizedrupal/mysql:2.0.1
   hostname: mysql-data
   entrypoint: ["/bin/echo", "Data-only container for MySQL."]
   volumes:
